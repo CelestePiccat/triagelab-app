@@ -270,7 +270,7 @@ function EvidenciaCard({ evidencia, puntajesUsuario, onPuntajeChange, mostrarCom
 
       {isExpanded && (
         <div style={{ padding: "20px 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 20 }}>
             {CRITERIA.map((c) => (
               <div key={c.id}>
                 <div style={{ fontSize: 12, fontWeight: 600, color: "#34495e", marginBottom: 4 }}>
@@ -340,7 +340,7 @@ function ResultadosPanel({ caso, puntajesUsuario }) {
 
   return (
     <div>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20, marginBottom: 28 }}>
         <div style={{ background: "#f0f4f8", borderRadius: 10, padding: "18px 20px" }}>
           <div style={{ fontSize: 12, fontWeight: 700, color: "#5a6a7a", marginBottom: 12, letterSpacing: 1 }}>
             TU PRIORIZACIÓN
@@ -503,7 +503,7 @@ export default function TriageLab() {
       {/* Header */}
       <div style={{
         background: "#1a3a5c",
-        padding: "0 32px",
+        padding: "0 16px",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -512,16 +512,11 @@ export default function TriageLab() {
         top: 0,
         zIndex: 100,
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 8,
-            background: "rgba(255,255,255,0.15)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 20,
-          }}>🔬</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          <img src="/logo.png" alt="TriageLab logo" style={{ width: 38, height: 38, borderRadius: 8, objectFit: "cover" }} />
           <div>
-            <span style={{ color: "#fff", fontWeight: 700, fontSize: 18, letterSpacing: 1 }}>TriageLab</span>
-            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 12, marginLeft: 8 }}>Evidencia Digital · Priorización Forense</span>
+            <span style={{ color: "#fff", fontWeight: 700, fontSize: 17, letterSpacing: 0.5 }}>TriageLab</span>
+            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: 11, marginLeft: 6, display: "inline" }}>Evidencia Digital · Priorización Forense</span>
           </div>
         </div>
         {pantalla !== "inicio" && (
@@ -531,24 +526,25 @@ export default function TriageLab() {
               background: "rgba(255,255,255,0.1)",
               border: "1px solid rgba(255,255,255,0.2)",
               color: "#fff",
-              padding: "6px 16px",
+              padding: "6px 12px",
               borderRadius: 6,
               cursor: "pointer",
-              fontSize: 13,
+              fontSize: 12,
+              whiteSpace: "nowrap",
             }}
           >
-            ← Volver al inicio
+            ← Inicio
           </button>
         )}
       </div>
 
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 20px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "20px 12px" }}>
         {/* ======================== PANTALLA INICIO ======================== */}
         {pantalla === "inicio" && (
           <div>
             <div style={{ textAlign: "center", marginBottom: 40 }}>
-              <div style={{ fontSize: 48, marginBottom: 12 }}>🔬</div>
-              <h1 style={{ fontSize: 36, fontWeight: 700, color: "#1a3a5c", margin: "0 0 8px" }}>TriageLab</h1>
+              <img src="/logo.png" alt="TriageLab" style={{ width: 80, height: 80, borderRadius: 18, objectFit: "cover", marginBottom: 16 }} />
+              <h1 style={{ fontSize: 32, fontWeight: 700, color: "#1a3a5c", margin: "0 0 8px" }}>TriageLab</h1>
               <p style={{ fontSize: 18, color: "#5a6a7a", maxWidth: 560, margin: "0 auto 16px" }}>
                 Simulador de priorización de evidencia digital en casos de cibercrimen
               </p>
@@ -579,7 +575,7 @@ export default function TriageLab() {
                 operadores judiciales y estudiantes de ciberseguridad forense. Permite practicar la valoración y priorización
                 de evidencias en escenarios reales de cibercrimen.
               </p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 16 }}>
                 {[
                   { num: "6", label: "Criterios de valoración", icon: "📊" },
                   { num: "3", label: "Casos de cibercrimen", icon: "🗂️" },
@@ -600,7 +596,7 @@ export default function TriageLab() {
 
               <div style={{ marginTop: 24 }}>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: "#1a3a5c", marginBottom: 12 }}>Criterios de valoración</h3>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 8 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 8 }}>
                   {CRITERIA.map((c) => (
                     <div key={c.id} style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
                       <span style={{ fontSize: 16 }}>{c.icon}</span>
