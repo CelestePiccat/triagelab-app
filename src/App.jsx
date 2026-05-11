@@ -623,10 +623,9 @@ export default function TriageLab() {
                     padding: "24px 28px",
                     cursor: "pointer",
                     transition: "all 0.15s",
-                    display: "grid",
-                    gridTemplateColumns: "1fr auto",
-                    alignItems: "center",
-                    gap: 20,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 16,
                   }}
                   onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#1a3a5c"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(26,58,92,0.1)"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#dce3ea"; e.currentTarget.style.boxShadow = "none"; }}
@@ -651,11 +650,13 @@ export default function TriageLab() {
                   <div style={{
                     background: "#1a3a5c",
                     color: "#fff",
-                    padding: "10px 20px",
+                    padding: "12px 20px",
                     borderRadius: 8,
                     fontSize: 14,
                     fontWeight: 600,
-                    whiteSpace: "nowrap",
+                    textAlign: "center",
+                    width: "100%",
+                    boxSizing: "border-box",
                   }}>
                     Iniciar triage →
                   </div>
