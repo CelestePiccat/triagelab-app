@@ -336,7 +336,7 @@ export default function TriageLab() {
               <p style={{ color:DS.slate500, lineHeight:1.75, fontSize:13, marginBottom:18 }}>
                 Simulador educativo de <strong style={{ color:DS.slate700 }}>triage de evidencia digital</strong> para investigadores, operadores judiciales y estudiantes de ciberseguridad forense. Permite practicar la valoración y priorización de evidencias en escenarios reales de cibercrimen.
               </p>
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(100px,1fr))", gap:10, marginBottom:20 }}>
+              <div style={{ display:"grid", gridTemplateColumns:"repeat(3,1fr)", gap:10, marginBottom:20 }}>
                 {[{num:"6",label:"Criterios de valoración",icon:"scale"},{num:"3",label:"Casos de cibercrimen",icon:"folder-open"},{num:"16",label:"Evidencias digitales",icon:"layers"}].map(item=>(
                   <div key={item.num} style={{ background:DS.slate50, border:`1px solid ${DS.slate200}`, borderRadius:10, padding:"12px 10px", textAlign:"center" }}>
                     <Icon name={item.icon} size={18} color={DS.blue600} style={{ display:"block", margin:"0 auto 6px" }} />
@@ -346,7 +346,7 @@ export default function TriageLab() {
                 ))}
               </div>
               <div style={{ fontSize:10, fontWeight:600, color:DS.slate500, letterSpacing:"0.08em", textTransform:"uppercase", marginBottom:10 }}>Criterios de valoración</div>
-              <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(200px,1fr))", gap:8 }}>
+              <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(180px,1fr))", gap:8 }}>
                 {CRITERIA.map(c=>(
                   <div key={c.id} style={{ display:"flex", gap:7, alignItems:"flex-start" }}>
                     <Icon name={c.icon} size={13} color={DS.blue600} style={{ marginTop:2, flexShrink:0 }} />
