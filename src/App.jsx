@@ -48,6 +48,32 @@ const Icon = ({ name, size = 16, color = "currentColor", style: s = {} }) => {
   );
 };
 
+/* ─── ISOTIPO SVG (manual de marca: tres barras + punto celeste) ── */
+const Isotipo = ({ size = 32 }) => {
+  const r = size * 0.22;
+  const barW1 = size * 0.52, barW2 = size * 0.38, barW3 = size * 0.26;
+  const barH  = size * 0.095;
+  const gap   = size * 0.13;
+  const x0    = (size - barW1) / 2;
+  const y1    = size * 0.30;
+  const y2    = y1 + barH + gap;
+  const y3    = y2 + barH + gap;
+  const dotR  = size * 0.07;
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width={size} height={size} rx={r} fill="#0B5FFF"/>
+      {/* barra 1 — ALTA */}
+      <rect x={x0} y={y1} width={barW1} height={barH} rx={barH/2} fill="white"/>
+      {/* punto celeste sobre barra 1 */}
+      <circle cx={x0 + barW1 - dotR * 0.5} cy={y1 + barH / 2} r={dotR} fill="#38BDF8"/>
+      {/* barra 2 — MEDIA */}
+      <rect x={x0} y={y2} width={barW2} height={barH} rx={barH/2} fill="rgba(255,255,255,0.75)"/>
+      {/* barra 3 — BAJA */}
+      <rect x={x0} y={y3} width={barW3} height={barH} rx={barH/2} fill="rgba(255,255,255,0.45)"/>
+    </svg>
+  );
+};
+
 /* ─── DATA ──────────────────────────────────────────────────────── */
 const CRITERIA = [
   { id:"relevancia",     label:"Relevancia probatoria",     icon:"scale",         desc:"Valor de la evidencia para probar el delito." },
@@ -276,8 +302,10 @@ export default function TriageLab() {
       {/* HEADER */}
       <header style={{ background:DS.blue900, padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", height:54, position:"sticky", top:0, zIndex:100 }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
-          <img src="/logo.png" alt="TriageLab" style={{ width:32, height:32, borderRadius:7, objectFit:"cover" }} />
-          <span style={{ color:"#fff", fontWeight:700, fontSize:15, letterSpacing:"-0.01em" }}>TriageLab</span>
+          <Isotipo size={32} />
+          <span style={{ color:"#fff", fontWeight:400, fontSize:15, letterSpacing:"-0.01em" }}>
+            Triage<strong style={{ fontWeight:700 }}>Lab</strong>
+          </span>
           <span style={{ color:"rgba(255,255,255,0.35)", fontSize:11, display:"none" }} className="hide-mobile">Evidencia Digital · Priorización Forense</span>
         </div>
         {pantalla!=="inicio" && (
@@ -293,8 +321,10 @@ export default function TriageLab() {
         {pantalla==="inicio" && (
           <div>
             <div style={{ textAlign:"center", marginBottom:32 }}>
-              <img src="/logo.png" alt="TriageLab" style={{ width:68, height:68, borderRadius:15, objectFit:"cover", marginBottom:12, boxShadow:`0 4px 18px rgba(11,95,255,0.22)` }} />
-              <h1 style={{ fontSize:28, fontWeight:800, color:DS.blue900, margin:"0 0 8px", letterSpacing:"-0.02em" }}>TriageLab</h1>
+              <div style={{ marginBottom:14 }}><Isotipo size={72} /></div>
+              <h1 style={{ fontSize:28, fontWeight:400, color:DS.blue900, margin:"0 0 8px", letterSpacing:"-0.02em" }}>
+                Triage<strong style={{ fontWeight:800 }}>Lab</strong>
+              </h1>
               <p style={{ fontSize:15, color:DS.slate500, maxWidth:460, margin:"0 auto 12px", lineHeight:1.65 }}>Simulador de priorización de evidencia digital en casos de cibercrimen</p>
               <span style={{ display:"inline-flex", alignItems:"center", gap:5, background:DS.cyan50, color:DS.blue600, padding:"3px 12px", borderRadius:999, fontSize:11, fontWeight:600, letterSpacing:"0.03em", border:`1px solid ${DS.cyan400}44` }}>
                 <Icon name="info" size={11} color={DS.blue600} /> Herramienta educativa · SNIC Argentina 2000–2024
