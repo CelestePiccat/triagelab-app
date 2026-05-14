@@ -296,11 +296,11 @@ export default function TriageLab() {
   const btnOutline  = { padding:"9px 18px", borderRadius:8, border:`1px solid ${DS.blue600}`, background:"#fff", color:DS.blue600, cursor:"pointer", fontSize:13, fontWeight:600, fontFamily:font, display:"flex", alignItems:"center", gap:6 };
 
   return (
-    <div style={{ fontFamily:font, background:DS.slate50, minHeight:"100vh" }}>
+    <div style={{ fontFamily:font, background:DS.slate50, minHeight:"100vh", width:"100%", overflowX:"hidden" }}>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap'); * { box-sizing: border-box; }`}</style>
 
       {/* HEADER */}
-      <header style={{ background:DS.blue900, padding:"0 16px", display:"flex", alignItems:"center", justifyContent:"space-between", height:54, position:"sticky", top:0, zIndex:100 }}>
+      <header style={{ background:DS.blue900, padding:"0 20px", display:"flex", alignItems:"center", justifyContent:"space-between", height:54, position:"sticky", top:0, zIndex:100, width:"100%", boxSizing:"border-box" }}>
         <div style={{ display:"flex", alignItems:"center", gap:10 }}>
           <Isotipo size={32} />
           <span style={{ color:"#fff", fontWeight:400, fontSize:15, letterSpacing:"-0.01em" }}>
